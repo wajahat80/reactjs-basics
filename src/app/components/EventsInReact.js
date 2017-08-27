@@ -1,5 +1,7 @@
 import React from "react";
-import PropTypes from 'prop-types'; // To set data type for a property, we specify using Prop look at the bottom of this file
+import PropTypes from 'prop-types'; // To set data type for a property, we
+									// specify using Prop look at the bottom of
+									// this file
 
 export class EventsInReact extends React.Component {
 	// Props is for passing data from outside the components
@@ -15,9 +17,10 @@ export class EventsInReact extends React.Component {
 			status: 0
 		};
 		
-		{/* for ES6
-		setTimeOut(()=>{this.setState({status: 0}); }.bind(this), 2000);
-		*/}
+		{/*
+			 * for ES6 setTimeOut(()=>{this.setState({status: 0}); }.bind(this),
+			 * 2000);
+			 */}
 		
 		setTimeout(function() { this.state.status==0 ? this.setState({status:1}):this.setState({status:0}); }.bind(this), 3000);
 		
@@ -31,13 +34,13 @@ export class EventsInReact extends React.Component {
 			age: this.state.age + 3
 			
 		});
-		/* Note: Eventhough the value has been assigned to state.age using setState()
-		 but the change will effect after executing this block of code
-		 This is why you will see different ages in console and the page after rendered
-		 However, the best way for assigning value is to use
-		 	this.state.age += 3;
-		 before calling the setState() and then in setState() 
-		 	age: this.state.age
+		/*
+		 * Note: Eventhough the value has been assigned to state.age using
+		 * setState() but the change will effect after executing this block of
+		 * code This is why you will see different ages in console and the page
+		 * after rendered However, the best way for assigning value is to use
+		 * this.state.age += 3; before calling the setState() and then in
+		 * setState() age: this.state.age
 		 */
 		
 		console.log("New Age is "+this.state.age+" props age is "+this.props.initialAge);
@@ -63,11 +66,11 @@ export class EventsInReact extends React.Component {
                		<p>status: {this.state.status}</p>
                		<br/>
                     {
-               		/* 
-                     * Events in react can be triggered as follows 
-                     * .bind is used to trigger this function only within this component
-                     * otherwise it will throw an exception
-                     */
+               		/*
+					 * Events in react can be triggered as follows .bind is used
+					 * to trigger this function only within this component
+					 * otherwise it will throw an exception
+					 */
                     }
                     <p>
                     <button onClick={this.fn_ButtonClick.bind(this)} className="btn"> Click Me </button>
