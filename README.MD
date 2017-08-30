@@ -17,4 +17,7 @@ Parent to child: an example is passing values as props and using it in child com
 Child to Parent: passing a reference method or links to the child and child use that reference to call back the method
 
 
+### To execute the project
+Goto project and write 
+> npm start
 

@@ -10,6 +10,10 @@ import FunctionalStyleComponent  from "./components/FunctionalStyleComponent";
 import { StatelessComp } from "./components/StatelessComp";
 import { ParentChildReference } from "./components/ParentChildReference";
 import { MyComp } from "./components/MyComp";
+import { ChangeInputText } from "./components/ChangeInputText";
+import { RestConsumer } from "./components/RestConsumer";
+
+
 
 class App extends React.Component {
 	
@@ -17,7 +21,7 @@ class App extends React.Component {
 		super();
 		
 		this.state = {
-			myCompText:"A property passing to show this text from index.js to MyComp.js"
+			myCompText:"initial text"
 		};
 	}
 		
@@ -103,6 +107,7 @@ class App extends React.Component {
 				</div>
 					 */}
 				
+				{/*
 				
 				<div>
 					<MyComp myCompText={this.state.myCompText} />
@@ -116,9 +121,12 @@ class App extends React.Component {
 					/>
 				</div>
 					
+				 */}
 					
 				
-				
+				<div>
+					<RestConsumer />
+				</div>
             </div>
 
         );

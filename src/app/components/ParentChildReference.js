@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'; //to make sure the object type we want to us
 export class ParentChildReference extends React.Component {
 	
 	constructor(props){
-		super();
+		super(props);
 		this.state = {
 				myText: props.inputText
 		};
@@ -14,10 +14,12 @@ export class ParentChildReference extends React.Component {
 		this.props.changeText(this.state.myText);
 	}
 	
-	onHandleChange(){
+	onHandleChange(event){
+		console.log("Triggered onHandleChange"+event.target.value);
 		this.setState({
 			myText: event.target.value
 		});
+		console.log("..."+this.state.myText);
 	}
 	
 	render() {
@@ -26,10 +28,18 @@ export class ParentChildReference extends React.Component {
             <div className="container">
             	<h1>Communicating Parent Child!</h1>
             	
-            	<button onClick={this.props.greet}>Greet Me</button> {/*This will call the parent function*/}
-            	<input type="text" value={this.state.myText} 
-            		onChange = { (event) => this.onHandleChange(event) }  />
-            	<button onClick={this.changeText.bind(this)}>Change MyComp Text</button>
+            	<p>
+	            	<button onClick={this.props.greet}>Greet Me</button> {/*This will call the parent function*/}
+            	</p>
+            	
+            	<p>
+	            	Input Text: <input type="text" value={this.state.myText} autoFocus="autofocus"  size="90"
+	            		onChange = { (event) => this.onHandleChange(event) }  />
+            	</p>
+            	
+            	<p>
+	            	<button onClick={this.changeText.bind(this)}>Change Input Text</button>
+            	</p>
             </div>
         );
 
@@ -39,6 +49,7 @@ export class ParentChildReference extends React.Component {
 
 ParentChildReference.propTypes = {
 	greet: PropTypes.func,
-	inputText: PropTypes.string
+	inputText: PropTypes.string,
+	changeMyCompText: PropTypes.func
 };
 
